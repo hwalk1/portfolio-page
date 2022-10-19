@@ -3,6 +3,14 @@ import {BsFillMoonStarsFill} from 'react-icons/bs'
 import {AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube} from 'react-icons/ai'
 import Image from 'next/image';
 import profilePhoto from '../public/pf-transformed.png';
+import * as THREE from 'three';
+
+const scene = new THREE.Scene();
+
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector('#bg'),
+})
+
 
 
 export default function Home() {
@@ -14,7 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className=' bg-white px-10'>
+      <main id='bg' className=' bg-white px-10'>
         <section className="min-h-screen">
           <nav className="py-10 mb-12 flex justify-between">
             <h1 className='text-xl font-burtons'>designedbyhwalk1</h1>
