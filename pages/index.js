@@ -3,13 +3,11 @@ import {BsFillMoonStarsFill} from 'react-icons/bs'
 import {AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube} from 'react-icons/ai'
 import Image from 'next/image';
 import profilePhoto from '../public/pf-transformed.png';
-import * as THREE from 'three';
-
-const scene = new THREE.Scene();
-
-const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector('#bg'),
-})
+import { Canvas } from '@react-three/fiber';
+import Floor from '../components/3js';
+import Box from '../components/box';
+import LightBulb from '../components/lightBulb';
+import OrbitControls from '../components/OrbitControls';
 
 
 
@@ -56,7 +54,19 @@ export default function Home() {
         <section>
           <div>
             <h3 className='text-3xl py-1'>My Stack</h3>
-            <p></p>
+            <Canvas 
+              shadows={true}
+              camera={{
+                position: [-6, 7, 7],
+              }}
+              >
+                <ambientLight color='white' intensity={0.3}/>
+                <LightBulb position={[0, 3, 0]} />
+                  <Box rotateX={3} rotateY={0.2} />
+                <OrbitControls />
+                <Floor postion={[0, -1, 0]}/>
+            </Canvas>
+            <p>Extra</p>
           </div>
         </section>
       </main>
